@@ -1,19 +1,19 @@
-import { Text, Input, Center, Image, Heading, Button as CButton, SimpleGrid } from "@chakra-ui/react";
-import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
+import { Text, Input, Center, Image, Heading, Button as CButton, SimpleGrid } from "@chakra-ui/react"
+import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react"
 
-import { useState } from "react";
+import { useState } from "react"
 
 export const RecipeListPage = ({ data, clickFn }) => {
-  const [recipes, setRecipes] = useState(data.hits);
+  const [recipes, setRecipes] = useState(data.hits)
 
   const onClickFn = recipe => {
-    clickFn(recipe);
-  };
+    clickFn(recipe)
+  }
 
   const onChangeFilter = event => {
-    const filteredData = data.hits.filter(obj => obj.recipe.label.toLowerCase().includes(event.target.value.toLowerCase()));
-    setRecipes(filteredData);
-  };
+    const filteredData = data.hits.filter(obj => obj.recipe.label.toLowerCase().includes(event.target.value.toLowerCase()))
+    setRecipes(filteredData)
+  }
 
   const recipeListItems = recipes.map(obj => (
     <Card key={obj.recipe.label}>
@@ -43,11 +43,11 @@ export const RecipeListPage = ({ data, clickFn }) => {
       </CardBody>
       <CardFooter>
         <CButton type="button" onClick={() => onClickFn(obj.recipe)}>
-          Details
+          Details voor details
         </CButton>
       </CardFooter>
     </Card>
-  ));
+  ))
 
   return (
     <div>
@@ -65,5 +65,5 @@ export const RecipeListPage = ({ data, clickFn }) => {
         </SimpleGrid>
       </Center>
     </div>
-  );
-};
+  )
+}
